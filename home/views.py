@@ -1,17 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Department
 
 # Create your views here.
 
 def home_page(request):
-
-    numbers = {
-        'name' : 'nasih',
-        'num': [1,2,3,4,5,6,7,8],
-    }
-
-    return render(request,'home.html',numbers)
+    return render(request,'home.html')
 
 def about(request):
     return render(request,'about.html')
@@ -26,4 +20,8 @@ def contact(request):
     return render(request,'contact.html')
 
 def department(request):
-    return render(request,'department.html')
+    department = {
+        'dept' : Department.objects.all()
+    }
+
+    return render(request,'department.html',department)

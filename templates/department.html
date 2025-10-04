@@ -3,7 +3,16 @@
 {% block title %} Department {% endblock %}
 
 {% block content %}
-    <h1>Department page</h1>
-        
+    <h1 class = "text-center">Departments</h1>
+    <hr>
+    {% for i in dept %}
+        <div class = "mx-auto w-50 p-3 bg-secondary text-light text-center border border-dark rounded my-5">
+            <h2>{{ i.dep_name }}</h2>
+            <p>{{ i.dep_description }}</p>
+        </div>
+          
+    {% endfor %}
+
+    
         
 {% endblock %}
